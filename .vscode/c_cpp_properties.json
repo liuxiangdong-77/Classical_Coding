@@ -1,0 +1,38 @@
+{
+  "version": 4,
+  "configurations": [
+    {
+      "name": "Win32",
+      "includePath": [
+        "${workspaceFolder}/src",
+        "D:/SOFTWARE/CUDA/include",
+        "D:/SOFTWARE/VisualStudio/VisualStudio/VC/Tools/MSVC/14.44.35207/include",
+        "D:/Windows Kits/10/Include/10.0.26100.0/ucrt",
+        "D:/Windows Kits/10/Include/10.0.26100.0/um",
+        "D:/Windows Kits/10/Include/10.0.26100.0/shared",
+        "D:/Windows Kits/10/Include/10.0.26100.0/winrt"
+      ],
+      "defines": [
+        // 关键的一条：__cudaPushCallConfiguration 的声明在
+        // CUDA\include\crt\device_functions.h 里被 #ifdef __CUDACC__ 包着。
+        // 不定义 __CUDACC__，C/C++ 插件就找不到它，于是报
+        // C/C++(3118)「找不到 __cudaPushCallConfiguration 声明，CUDA 工具包安装可能已损坏」。
+        // 注意：这些宏只影响编辑器（IntelliSense），不影响 nvcc 真正编译。
+        "__CUDACC__",
+        "__CUDACC_VER_MAJOR__=13",
+        "__CUDACC_VER_MINOR__=5",
+        "__CUDACC_VER_BUILD__=37",
+        "UNICODE",
+        "_UNICODE",
+        "_CRT_SECURE_NO_WARNINGS"
+      ],
+      // 只影响 IntelliSense。若哪天 MSVC / Windows SDK 升级，改下面路径里的版本号即可：
+      //   MSVC          → D:\SOFTWARE\VisualStudio\VisualStudio\VC\Tools\MSVC\<版本>
+      //   Windows SDK   → D:\Windows Kits\10\Include\<版本>
+      "compilerPath": "D:/SOFTWARE/VisualStudio/VisualStudio/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe",
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "windows-msvc-x64"
+    }
+  ]
+}

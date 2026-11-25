@@ -1,0 +1,16 @@
+{
+  "files.associations": {
+    "*.cu": "cuda-cpp",
+    "*.cuh": "cuda-cpp"
+  },
+  "files.encoding": "utf8",
+  "files.eol": "\r\n",
+  "files.trimTrailingWhitespace": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.rulers": [100],
+  "C_Cpp.errorSquiggles": "enabled",
+  "cmake.useCMakePresets": "always",
+  // 源码是自己敲的，打开工程时 build/ 还不存在，别一上来就自动配置报错
+  "cmake.configureOnOpen": false
+}
